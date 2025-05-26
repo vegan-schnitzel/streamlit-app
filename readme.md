@@ -1,1 +1,1 @@
-Access interactive web page [here](https://blank-app-dappw8scjkuf.streamlit.app/).
+Access interactive web page [here](https://vegan-schnitzel.streamlit.app/).
