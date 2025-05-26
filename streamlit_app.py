@@ -31,8 +31,8 @@ def weather_in(city, api_key=api_key):
     wind_speed = round(res['wind']['speed'] * 3.6, 1)  # in m/s
     sky = res['weather'][0]['description']
     output = (f"If you look up in {city} ({country}), you'll see {sky}. "
-              f"The temperature feels like {str(tmp)} °C, "
-              f"and the wind blows with {wind_speed} km/h.")
+              f"The temperature feels like {str(tmp)}°C & "
+              f"the wind blows with {wind_speed} km/h.")
     return output
 
 
@@ -65,6 +65,7 @@ def bokeh_plot(cities, colors):
                x_axis_type="datetime")
     for city, color in zip(cities, colors):
         time, temp = temperature_in_last_days(city=city)
+        # highlight selected city
         if city == city_sel:
             line_width = 5
             size = 10
@@ -81,7 +82,7 @@ def bokeh_plot(cities, colors):
 
 
 # MAIN
-st.title("🎈 Small WDigital eather Station!")
+st.title("🎈 Small Digital Weather Station!")
 cities = ['Berlin', 'Heidelberg', 'Madrid', 'Salamanca']
 
 # selection box showing printed temperature
