@@ -11,8 +11,7 @@ api_key = st.secrets["weather_api_key"]
 
 # WEATHER AS TEXT
 def get_location(city, api_key=api_key):
-    url = f'http://api.openweathermap.org/geo/1.0/direct?q={
-        city}&limit=3&appid={api_key}'
+    url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=3&appid={api_key}'
     r = requests.get(url)
     lat = r.json()[0]['lat']
     lon = r.json()[0]['lon']
@@ -22,8 +21,7 @@ def get_location(city, api_key=api_key):
 
 def weather_in(city, api_key=api_key):
     lat, lon, country = get_location(city=city)
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={
-        lat}&lon={lon}&appid={api_key}'
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}'
     r = requests.get(url)
     res = r.json()
     # human perceived temperature in °C
